@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_char_option.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 13:39:50 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/05 15:19:07 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/05 14:24:53 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/05 15:44:32 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_itoa_base(unsigned int num, int base)
+void	ft_char_option(char opt, va_list ap)
 {
-	static char Representation[]= "0123456789ABCDEF";
-	static char buffer[50];
-	char *ptr;
-
-	ptr = &buffer[49];
-	*ptr = '\0';
-
-	do
+	if (opt == 'c')
 	{
-		*--ptr = Representation[num%base];
-		num /= base;
-	}while(num != 0);
-
-	return(ptr);
+		int ret;
+		ret = va_arg(ap, int);
+		ft_putchar(ret);
+	}
 }

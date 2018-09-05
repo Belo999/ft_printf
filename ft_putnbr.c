@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 13:39:50 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/05 15:19:07 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/05 14:42:25 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/05 14:55:18 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_itoa_base(unsigned int num, int base)
+void	ft_putnbr(int nb)
 {
-	static char Representation[]= "0123456789ABCDEF";
-	static char buffer[50];
-	char *ptr;
-
-	ptr = &buffer[49];
-	*ptr = '\0';
-
-	do
+	if (nb == -2147483648)
+		ft_putstr("-2147483648");
+	else if (nb < 0)
 	{
-		*--ptr = Representation[num%base];
-		num /= base;
-	}while(num != 0);
-
-	return(ptr);
+		ft_putchar('-');
+		ft_putnbr(-nb);
+	}
+	else if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10 + '0');
+	}
+	else
+		ft_putchar(nb + '0');
 }
