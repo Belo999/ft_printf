@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 12:15:22 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/05 12:16:32 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/11 09:21:09 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/11 09:21:11 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ size_t		ft_strlen(const char *str)
 	i = 0;
 	while (str[i])
 		i++;
-	return (i);
+	return(i);	
 }

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_char_option.c                                   :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 14:24:53 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/05 15:44:32 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/11 11:33:26 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/11 11:33:47 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_char_option(char opt, va_list ap)
+char	*ft_strdup(const char *s)
 {
-	if (opt == 'c')
-	{
-		int ret;
-		ret = va_arg(ap, int);
-		ft_putchar(ret);
-	}
+	char	*ret;
+
+	ret = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!ret)
+		return (NULL);
+	ret = ft_strcpy(ret, s);
+	return (ret);
 }

@@ -15,14 +15,11 @@
 int main()
 {
 	int i = 7;
-	char *str = "Belo";
-	char t = 't';
-	int j = 10;
 	char* test = "The ith value";
 	/*while (test != '\0') {
 		ft_putstr(test);
 		test++;
 	}*/
-	ft_printf("Hello %s Molokana %d and %s the chararcter is %d", str, i, test, j);
+	ft_printf("Hello %s Thabelo", test);
 	return 0;
 }

@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 12:03:29 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/05 12:21:40 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/11 09:20:52 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/11 09:20:55 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }

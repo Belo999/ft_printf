@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_finder.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 09:20:42 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/11 10:39:34 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/11 13:41:53 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/11 13:58:14 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "flags.h"
 
-int		ft_printf(const char *str, ...)
+int	ft_len_mod(char s)
 {
-	int 		len;
-	va_list 	ap;
+	int i;
 
-	len = 0;
-	va_start(ap, str);
-	while (*str != '\0')
+	i = 0;
+	while (len_mod[i])
 	{
-		if (*str != '%')
-			len += ft_putchar(*str);
-		else
-		{
-			/*if (ft_convspec_detect(*str))
-			{
-				 detect for the conversion specifier
-				str++;
-			}
-		*/
-		}
-		str++;
+		if (len_mod[i] == s)
+			return (1);
+		i++;
 	}
-	va_end(ap);
-	return (len);
+	return (0);
+}
+
+int	ft_double_quote(char *str)
+{
+	while (*str)
+	{
+		str++;
+		if (*str == '%')
+			return (1);
+	}
+	return (0);
 }

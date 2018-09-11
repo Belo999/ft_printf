@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 13:39:50 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/05 15:19:07 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/11 10:12:38 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/11 14:10:58 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_itoa_base(unsigned int num, int base)
+int		ft_strchr(char *str, unsigned char c)
 {
-	static char Representation[]= "0123456789ABCDEF";
-	static char buffer[50];
-	char *ptr;
-
-	ptr = &buffer[49];
-	*ptr = '\0';
-
-	do
-	{
-		*--ptr = Representation[num%base];
-		num /= base;
-	}while(num != 0);
-
-	return(ptr);
+		char *temp;
+		
+		temp = (char *)str;
+		if (*temp == '\0' || c == '\0')
+			return (0);
+		while (*temp != '\0')
+		{
+			if (*temp == c)
+				return (1);
+			temp++;
+		}
+		return (0);
 }

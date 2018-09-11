@@ -5,35 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 09:20:42 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/11 10:39:34 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/05 13:15:23 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/05 16:17:02 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *str, ...)
+void	ft_printf(const char *str, ...)
 {
-	int 		len;
-	va_list 	ap;
+	va_list ap;
+	int ch;
 
-	len = 0;
 	va_start(ap, str);
 	while (*str != '\0')
 	{
-		if (*str != '%')
-			len += ft_putchar(*str);
-		else
+		while (*str != '%')
 		{
-			/*if (ft_convspec_detect(*str))
-			{
-				 detect for the conversion specifier
-				str++;
-			}
-		*/
+			ft_putchar(*str);
+			str++;
 		}
 		str++;
+		if (*str)
+		{
+			if (*str == 'c')
+			{
+				ft_char_option(ap);
+				str++;
+			}
+			else if (*str == 'd' || *str == 'i')
+			{
+				/* needs to be modified to handle negative numbers */
+				ft_num_option(ap);
+				str++;
+			}
+			else if (*str == 'o')
+			{
+				ch = va_arg(ap, unsigned int);
+				ft_putstr(ft_itoa_base(ch, 8));
+				str++;
+			}
+			else if (*str == 'x' || *str == 'X')
+			{
+				ch = va_arg(ap, unsigned int);
+				ft_putstr(ft_itoa_base(ch, 16));
+				str++;
+			}
+			else if (*str == 's')
+			{
+				ft_str_option(ap);
+				str++;
+			}
+		}
 	}
 	va_end(ap);
-	return (len);
 }

@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_num_option.c                                    :+:      :+:    :+:   */
+/*   flags.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 14:34:10 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/05 15:17:09 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/11 10:49:35 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/11 10:49:38 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FLAGS_H
+# define FLAGS_H
 
-void	ft_num_option(char opt, va_list ap)
-{
-	if (opt == 'd' || opt == 'i')
-	{
-		int ret;
+char	conv_sp[16] = {'s', 'S', 'p', 'd', 'D', 'i', 'o', 'O', 'u',
+	'U', 'x', 'X', 'c', 'C', '%', '\0'};
+char	flags[6] = {'#', '0', '-', ' ','+', '\0'};
+char	len_mod[5] = {'h', 'l', 'j', 'z', '\0'};
 
-		ret = va_arg(ap, int);
-		ft_putnbr(ret);
-	}
-}
+#endif
