@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finder.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 13:41:53 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/11 13:58:14 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/12 14:16:55 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/12 14:16:59 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "flags.h"
+#include "ft_printf.h"
 
-int	ft_len_mod(char s)
+int		ft_atoi(const char *str)
 {
 	int i;
+	int result;
+	int sign;
 
 	i = 0;
-	while (len_mod[i])
+	result = 0;
+	sign = 1;
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == 32)
+		i++;
+	if (str[i] == '-')
 	{
-		if (len_mod[i] == s)
-			return (1);
+		sign = -1;
 		i++;
 	}
-	return (0);
-}
-
-int	ft_double_quote(char *str)
-{
-	while (*str)
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
-		str++;
-		if (*str == '%')
-			return (1);
+		result = result * 10 + (str[i] - '0');
+		i++;
 	}
-	return (0);
+	return (sign * result);
 }

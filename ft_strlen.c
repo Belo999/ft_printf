@@ -6,7 +6,7 @@
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 09:21:09 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/11 09:21:11 by tmolokan         ###   ########.fr       */
+/*   Updated: 2018/09/12 15:36:49 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t		ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
 		i++;
-	return(i);	
+	return (i);
 }

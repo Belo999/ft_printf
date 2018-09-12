@@ -6,7 +6,7 @@
 #    By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/11 09:21:17 by tmolokan          #+#    #+#              #
-#    Updated: 2018/09/11 14:02:05 by tmolokan         ###   ########.fr        #
+#    Updated: 2018/09/12 14:14:30 by tmolokan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,13 @@ OBJECT = ./ft_putchar.o \
 		 ./ft_strlen.o \
 		 ./ft_putstr.o \
 		./ft_printf.o \
-		./ft_finder.o \
 		./ft_strchr.o \
-		./ft_search_conv.o \
 		./ft_strcpy.o \
 		./ft_strdup.o \
-		./ft_flag_detect.o \
-		./ft_conv_detect.o \
-		./ft_double_quote.o
+		./ft_itoa_base.o \
+		./ft_int_handler.o \
+		./ft_atoi.o \
+		./ft_iswhitespace.o
 .PHONY: all clean fclean re
 
 all: $(NAME)
@@ -44,14 +43,14 @@ fclean: clean
 
 re: fclean all
 
-ft_double_quote.o: ft_double_quote.c
-	$(GCC) $(F) -c ft_double_quote.c
+ft_iswhitespace.o: ft_iswhitespace.c
+	$(GCC) $(F) -c ft_iswhitespace.c
 
-ft_conv_detect.o: ft_conv_detect.c
-	$(GCC) $(F) -c ft_conv_detect.c
+ft_atoi.o: ft_atoi.c
+	$(GCC) $(F) -c ft_atoi.c ft_iswhitespace.c
 
-ft_flag.o: ft_flag_detect.c
-	$(GCC) $(F) -c ft_flag_detect.c
+ft_itoa_base.o: ft_itoa_base.c
+	$(GCC) $(F) -c ft_itoa_base.c
 
 ft_strcpy.o: ft_strcpy.c
 	$(GCC) $(F) -c ft_strcpy.c
@@ -71,11 +70,6 @@ ft_putstr.o: ft_putstr.c
 ft_printf.o: ft_printf.c
 	$(GCC) $(F) -c ft_printf.c
 
-ft_finder.o: ft_finder.c
-	$(GCC) $(F) -c ft_finder.c
-
 ft_strchr.o: ft_strchr.c
 	$(GCC) $(F) -c ft_strchr.c
 
-ft_search_conv.o: ft_search_conv.c
-	$(GCC) $(F) -c ft_search_conv.c

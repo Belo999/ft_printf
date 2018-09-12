@@ -6,14 +6,13 @@
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 09:20:52 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/11 09:20:55 by tmolokan         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:13:47 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
-	return (1);
 }

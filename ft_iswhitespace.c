@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conv_detect.c                                   :+:      :+:    :+:   */
+/*   ft_iswhitespace.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 13:53:49 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/11 14:25:58 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/12 14:24:03 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/12 14:24:11 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "flags.h"
 
-int	ft_conv_detect(char s)
+int		ft_iswhitespace(unsigned char c)
 {
-	int	i;
-
-	i = 0;
-	while (conv_sp[i])
-	{
-		if (conv_sp[i] == s)
-			return (1);
-		i++;
-	}
-	return (0);
+	if (c == '\n' || c == '\t' || c == ' ')
+		return (1);
+	else
+		return (0);
 }

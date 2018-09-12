@@ -6,7 +6,7 @@
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 09:20:36 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/11 14:03:38 by tmolokan         ###   ########.fr       */
+/*   Updated: 2018/09/12 15:16:22 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,22 @@
 struct 			s_flag
 {
 	va_list						ap;
-	char						*flags;
-	int							printed;
-	int							flag_sharp;
-	int							flag_zero;
-	int							flag_space;
-	int							flag_plus;
-	int							flag_minus;
-	long long int				s_int_val;
-	unsigned long long int 		u_int_val;
+	int							num_pr;
 	char						conv_sp;
+	char						*str_cpy;
 };
 
 typedef	struct	s_flag	t_flag;
 
-int		ft_printf(const char *str, ...);
-int		ft_putchar(char c);
-size_t	ft_strlen(const char *str);
-void	ft_putstr(const char *str);
-int		ft_strchr(char *str,unsigned char c);
-int		ft_search_conv(char **str, va_list ap);
-char	*ft_strcpy(char *dest, const char *src);
-char	*ft_strdup(const char *s);
-int		ft_matcher(t_flag *list, va_list ap);
-int		ft_flag_detect(char s);
-int		ft_conv_detect(char s);
-int		ft_double_quote(char *str);
+void			ft_printf(const char *str, ...);
+void		ft_putchar(char c);
+size_t		ft_strlen(const char *str);
+void		ft_putstr(const char *str);
+int			ft_strchr(const char *str, int c);
+char		*ft_strcpy(char *dest, const char *src);
+char		*ft_strdup(const char *s);
+char		*ft_itoa_base(int value, int base);
+int			ft_atoi(const char *str);
+int			ft_iswhitespace(unsigned char c);
+void		ft_out(t_flag *list);
 #endif

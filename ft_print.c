@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_double_quote.c                                  :+:      :+:    :+:   */
+/*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 13:59:19 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/11 14:02:44 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/12 12:18:32 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/12 12:30:26 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "flags.h"
 
-int	ft_double_quote(char *str)
+void		ft_print(t_flag *list)
 {
-	while (*str)
+	while ((list->str_cpy) != '\0')
 	{
-		str++;
-		if (*str == '%')
-			return (1);
+		if ((list->str_cpy) != '%')
+		{
+			ft_putchar(*ret);
+			list->num_pr++;
+			list->str_cpy++;
+		}
+		else
+		{
+			(list->str_cpy)++;
+			if (ft_strchr_f("%sSpdDioOuUxXcC", **fmt))
+				list.spec = **fmt;
+			else
+				list.spec = **fmt;
+		}
+		ret++;
 	}
-	return (0);
+	va_end(ap);
+	return (len);
 }

@@ -6,34 +6,25 @@
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 09:20:42 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/11 10:39:34 by tmolokan         ###   ########.fr       */
+/*   Updated: 2018/09/12 15:14:35 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *str, ...)
+static	void	ft_intialize(t_flag *list, char	*str)
 {
-	int 		len;
-	va_list 	ap;
+	list->str_cpy = str;
+	list->num_pr = 0;
+	list->conv_sp = 0;
+}
 
-	len = 0;
-	va_start(ap, str);
-	while (*str != '\0')
-	{
-		if (*str != '%')
-			len += ft_putchar(*str);
-		else
-		{
-			/*if (ft_convspec_detect(*str))
-			{
-				 detect for the conversion specifier
-				str++;
-			}
-		*/
-		}
-		str++;
-	}
-	va_end(ap);
-	return (len);
+void		ft_printf(const char *str, ...)
+{
+	t_flag	list;
+
+	va_start(list.ap, (char*)str);
+	ft_intialize(&list, (char *)str);
+	ft_out(&list);
+	va_end(list.ap);
 }
