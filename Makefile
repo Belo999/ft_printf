@@ -6,7 +6,7 @@
 #    By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/11 09:21:17 by tmolokan          #+#    #+#              #
-#    Updated: 2018/09/12 14:14:30 by tmolokan         ###   ########.fr        #
+#    Updated: 2018/09/12 16:46:33 by tmolokan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,14 +19,15 @@ NAME = libftprintf.a
 OBJECT = ./ft_putchar.o \
 		 ./ft_strlen.o \
 		 ./ft_putstr.o \
-		./ft_printf.o \
-		./ft_strchr.o \
-		./ft_strcpy.o \
+		 ./ft_printf.o \
+		 ./ft_strchr.o \
+		 ./ft_strcpy.o \
 		./ft_strdup.o \
 		./ft_itoa_base.o \
-		./ft_int_handler.o \
 		./ft_atoi.o \
-		./ft_iswhitespace.o
+		./ft_iswhitespace.o \
+		./ft_out.o \
+		./ft_conversion.o
 .PHONY: all clean fclean re
 
 all: $(NAME)
@@ -42,6 +43,9 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+ft_conversion.o: ft_conversion.c
+	$(GCC) $(F) -c ft_conversion.c
 
 ft_iswhitespace.o: ft_iswhitespace.c
 	$(GCC) $(F) -c ft_iswhitespace.c
@@ -72,4 +76,8 @@ ft_printf.o: ft_printf.c
 
 ft_strchr.o: ft_strchr.c
 	$(GCC) $(F) -c ft_strchr.c
+ft_out.o: ft_out.c
+	$(GCC) $(F) -c ft_out.c
 
+ft_putnbr.o: ft_putnbr.c
+	$(GCC) $(F) -c ft_putnbr.c

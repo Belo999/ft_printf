@@ -6,7 +6,7 @@
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 09:20:42 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/12 15:14:35 by tmolokan         ###   ########.fr       */
+/*   Updated: 2018/09/12 16:39:18 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static	void	ft_intialize(t_flag *list, char	*str)
 	list->str_cpy = str;
 	list->num_pr = 0;
 	list->conv_sp = 0;
+	list->int_holder = 0;
 }
 
 void		ft_printf(const char *str, ...)

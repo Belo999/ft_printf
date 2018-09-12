@@ -6,11 +6,12 @@
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 14:33:14 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/12 15:35:39 by tmolokan         ###   ########.fr       */
+/*   Updated: 2018/09/12 17:00:17 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "stdio.h"
 
 void		ft_out(t_flag *list)
 {
@@ -25,7 +26,18 @@ void		ft_out(t_flag *list)
 		else
 		{
 			list->str_cpy++;
-			list->conv_sp = *(list->str_cpy);
+			list->conv_sp = (char)*(list->str_cpy);
+			if (ft_strchr("%sSpdDioOuUxXcC", list->conv_sp))
+			{
+				ft_conversion(list);
+				list->str_cpy++;
+			}
+			else
+			{
+			/* list->conv_sp = *(list->str_cpy);
+			 * search for any flags if any*/
+				printf("J");
+			}
 		}
 	}
 }

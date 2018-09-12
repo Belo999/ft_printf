@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/12 12:18:32 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/12 12:30:26 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/12 16:42:17 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/12 16:43:14 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_print(t_flag *list)
+void	ft_putnbr(int n)
 {
-	while ((list->str_cpy) != '\0')
+	long	nbr;
+
+	nbr = (long)n;
+	if (nbr < 0)
 	{
-		if ((list->str_cpy) != '%')
-		{
-			ft_putchar(*ret);
-			list->num_pr++;
-			list->str_cpy++;
-		}
-		else
-		{
-			(list->str_cpy)++;
-			if (ft_strchr_f("%sSpdDioOuUxXcC", **fmt))
-				list.spec = **fmt;
-			else
-				list.spec = **fmt;
-		}
-		ret++;
+		ft_putchar('-');
+		nbr *= -1;
 	}
-	va_end(ap);
-	return (len);
+	if (nbr >= 10)
+	{
+		ft_putnbr(nbr / 10);
+		ft_putnbr(nbr % 10);
+	}
+	else
+	{
+		ft_putchar(nbr + '0');
+	}
 }
