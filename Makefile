@@ -6,7 +6,7 @@
 #    By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/11 09:21:17 by tmolokan          #+#    #+#              #
-#    Updated: 2018/09/12 16:46:33 by tmolokan         ###   ########.fr        #
+#    Updated: 2018/09/17 16:09:09 by tmolokan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ OBJECT = ./ft_putchar.o \
 		./ft_atoi.o \
 		./ft_iswhitespace.o \
 		./ft_out.o \
-		./ft_conversion.o
+		./ft_conversion.o \
+		./ft_handle_nums.o \
+		./ft_low_itoa_base \
+		./ft_int_len.o
 .PHONY: all clean fclean re
 
 all: $(NAME)
@@ -46,6 +49,15 @@ re: fclean all
 
 ft_conversion.o: ft_conversion.c
 	$(GCC) $(F) -c ft_conversion.c
+
+ft_int_len.o: ft_int_len.c
+	$(GCC) $(F) -c ft_int_len.c
+
+ft_low_itoa_base.o: ft_low_itoa_base.c
+	$(GCC) $(F) -c ft_low_itoa_base.c
+
+ft_handle_nums.o: ft_handle_nums.c
+	$(GCC) $(F) -c ft_handle_nums.c
 
 ft_iswhitespace.o: ft_iswhitespace.c
 	$(GCC) $(F) -c ft_iswhitespace.c

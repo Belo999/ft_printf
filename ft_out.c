@@ -6,7 +6,7 @@
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 14:33:14 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/12 17:00:17 by tmolokan         ###   ########.fr       */
+/*   Updated: 2018/09/17 12:35:49 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void		ft_out(t_flag *list)
 			if (ft_strchr("%sSpdDioOuUxXcC", list->conv_sp))
 			{
 				ft_conversion(list);
+				ft_options(list);
 				list->str_cpy++;
 			}
 			else

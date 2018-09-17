@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_int_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 09:21:01 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/17 11:51:21 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/09/17 16:03:44 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/09/17 16:17:10 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(const char *str)
+size_t		ft_int_len(unsigned long long n, int base)
 {
-	int i;
+	int	len;
 
-	i = 0;
-	while (str[i])
+	if (n == 0)
+		return (1);
+	len = 0;
+	while (n)
 	{
-		ft_putchar(str[i]);
-		i++;
+		len++;
+		n /= base;
 	}
+	return (len);
 }

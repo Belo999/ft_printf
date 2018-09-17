@@ -6,13 +6,13 @@
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 14:23:04 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/09/17 15:34:33 by tmolokan         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:43:53 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_itoa_base(int value, int base)
+char	*ft_low_itoa_base(int value, int base)
 {
 	char	*s;
 	long	n;
@@ -29,7 +29,7 @@ char	*ft_itoa_base(int value, int base)
 	n = (value < 0) ? -(long)value : value;
 	while (len-- + sign)
 	{
-		s[len] = (n % base < 10) ? n % base + '0' : n % base + 'A' - 10;
+		s[len] = (n % base < 10) ? n % base + '0' : n % base + 'a' - 10;
 		n /= base;
 	}
 	!len ? s[0] = '-' : 0;
